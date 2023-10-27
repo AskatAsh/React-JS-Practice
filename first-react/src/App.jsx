@@ -33,11 +33,11 @@ function Device(props) {
   return <h4>Device Name: {props.deviceName}, Color: {props.color}</h4>
 }
 
-function UserData({user}) {
+function UserData({userName, email}) {
   return (
     <div>
-      <p>User Name: {user.userName}</p>
-      <p>Email: {user.email}</p>
+      <p>User Name: {userName}</p>
+      <p>Email: {email}</p>
     </div>
   )
 }
@@ -50,7 +50,7 @@ function App() {
       <Student></Student>
       <Device deviceName="Mobile" color="Green"></Device>
       <Device deviceName="Laptop" color="Silver"></Device>
-      <UserData user={{ userName: "Askat", email: "abc@example.com" }}></UserData>
+      <UserData userName="Askat" email="abc@example.com"></UserData>
     </>
   )
 }
