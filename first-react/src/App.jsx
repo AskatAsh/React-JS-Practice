@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './Todo.jsx'
 
 function MyButton() {
   return (
@@ -46,12 +47,13 @@ function App() {
   return (
     <>
       <h1>Hello World</h1>
-      <Name></Name>
+      {/* <Name></Name>
       <MyButton />
       <Student></Student>
       <Device deviceName="Mobile" color="Green"></Device>
       <Device deviceName="Laptop" color="Silver"></Device>
-      <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData>
+      <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData> */}
+      <Todo></Todo>
     </>
   )
 }
