@@ -29,6 +29,10 @@ function Student(){
   )
 }
 
+function Device(props){
+  return <h4>Device Name: {props.deviceName}, Color: {props.color}</h4>
+}
+
 function App() {
   return (
     <>
@@ -36,6 +40,8 @@ function App() {
       <Name></Name>
       <MyButton />
       <Student></Student>
+      <Device deviceName="Mobile" color="Green"></Device>
+      <Device deviceName="Laptop" color="Silver"></Device>
     </>
   )
 }
