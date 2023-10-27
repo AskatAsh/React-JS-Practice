@@ -33,11 +33,12 @@ function Device(props) {
   return <h4>Device Name: {props.deviceName}, Color: {props.color}</h4>
 }
 
-function UserData({userName, email}) {
+function UserData({userName, email, grade='00'}) {
   return (
     <div>
       <p>User Name: {userName}</p>
       <p>Email: {email}</p>
+      <p>Grade: {grade}</p>
     </div>
   )
 }
@@ -50,7 +51,7 @@ function App() {
       <Student></Student>
       <Device deviceName="Mobile" color="Green"></Device>
       <Device deviceName="Laptop" color="Silver"></Device>
-      <UserData userName="Askat" email="abc@example.com"></UserData>
+      <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData>
     </>
   )
 }
