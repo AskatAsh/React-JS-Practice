@@ -5,7 +5,7 @@ import './App.css'
 
 function MyButton(){
   return (
-    <button>Click Here</button>
+    <button className='btn'>Click Here</button>
   );
 }
 function Name(){
