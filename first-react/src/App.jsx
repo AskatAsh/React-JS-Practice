@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Todo from './Todo.jsx'
+import Actor from './Actor'
 
 function MyButton() {
   return (
@@ -44,17 +45,22 @@ function UserData({userName, email, grade='00'}) {
   )
 }
 function App() {
+  const actors = ['Sakib', 'Bappa', 'Riaz', 'Jasim', 'Salman']
   return (
     <>
       <h1>Hello World</h1>
+      <Actor name="Bappa Raz"></Actor>
+      {
+        actors.map(actor => <Actor name={actor}></Actor>)
+      }
       {/* <Name></Name>
       <MyButton />
       <Student></Student>
       <Device deviceName="Mobile" color="Green"></Device>
       <Device deviceName="Laptop" color="Silver"></Device>
       <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData> */}
-      <Todo task="learning props" isDone={true}></Todo>
-      <Todo task="Conditional rendering" isDone={false}></Todo>
+      {/* <Todo task="learning props" isDone={true}></Todo>
+      <Todo task="Conditional rendering" isDone={false}></Todo> */}
     </>
   )
 }
