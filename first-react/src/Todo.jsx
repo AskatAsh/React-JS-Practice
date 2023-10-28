@@ -1,3 +1,4 @@
-export default function Todo(){
-    return <h3>Todo from another file</h3>
+export default function Todo({task, isDone}){
+    // props = "read only props";
+    return <h3>{task} = {isDone}</h3>
 }

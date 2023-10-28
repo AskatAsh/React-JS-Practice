@@ -53,7 +53,7 @@ function App() {
       <Device deviceName="Mobile" color="Green"></Device>
       <Device deviceName="Laptop" color="Silver"></Device>
       <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData> */}
-      <Todo></Todo>
+      <Todo task="learning props" isDone={true}></Todo>
     </>
   )
 }
