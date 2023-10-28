@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Todo from './Todo.jsx'
 import Actor from './Actor'
+import Singer from './Singer'
 
 function MyButton() {
   return (
@@ -45,14 +46,23 @@ function UserData({userName, email, grade='00'}) {
   )
 }
 function App() {
-  const actors = ['Sakib', 'Bappa', 'Riaz', 'Jasim', 'Salman']
+  const actors = ['Sakib', 'Bappa', 'Riaz', 'Jasim', 'Salman'];
+  const singers = [
+    {id: 1, name: 'Bappa Mojumdar', age: 45},
+    {id: 2, name: 'Habib Wahid', age: 40},
+    {id: 3, name: 'Kona', age: 38},
+    {id: 4, name: 'Imran Khan', age: 39}
+  ];
   return (
     <>
       <h1>Hello World</h1>
-      <Actor name="Bappa Raz"></Actor>
+      {
+        singers.map(singer => <Singer singer={singer}></Singer>)
+      }
+      {/* <Actor name="Bappa Raz"></Actor>
       {
         actors.map(actor => <Actor name={actor}></Actor>)
-      }
+      } */}
       {/* <Name></Name>
       <MyButton />
       <Student></Student>
