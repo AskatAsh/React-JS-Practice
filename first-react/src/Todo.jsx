@@ -1,4 +1,8 @@
 export default function Todo({task, isDone}){
-    // props = "read only props";
-    return <h3>{task} = {isDone}</h3>
+    if(isDone){
+        return <li>Finished: {task}</li>
+    }
+    else{
+        return <li>Progress: {task}</li>
+    }
 }

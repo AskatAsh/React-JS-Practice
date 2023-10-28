@@ -54,6 +54,7 @@ function App() {
       <Device deviceName="Laptop" color="Silver"></Device>
       <UserData userName="Askat" email="abc@example.com" grade='4.50'></UserData> */}
       <Todo task="learning props" isDone={true}></Todo>
+      <Todo task="Conditional rendering" isDone={false}></Todo>
     </>
   )
 }
