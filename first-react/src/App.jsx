@@ -50,8 +50,8 @@ function App() {
   const singers = [
     {id: 1, name: 'Bappa Mojumdar', age: 45},
     {id: 2, name: 'Habib Wahid', age: 40},
-    {id: 3, name: 'Kona', age: 38},
-    {id: 4, name: 'Imran Khan', age: 39}
+    {id: 3, name: 'Imran Mahmudul', age: 38},
+    {id: 4, name: 'Mahtim Sakib', age: 24}
   ];
   return (
     <>
