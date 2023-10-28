@@ -14,6 +14,13 @@
 // export default function Todo({task, isDone}){
 //     return <li>{task} {isDone && ": Done"}</li>
 // }
+// export default function Todo({task, isDone}){
+//     return <li>{task} {isDone || ": On Going"}</li>
+// }
+
 export default function Todo({task, isDone}){
-    return <li>{task} {isDone || ": On Going"}</li>
+    let list;
+    if(isDone) list = <li>{task}: "Finished"</li>
+    else list = <li>{task}: "On Going"</li>
+    return list;
 }
