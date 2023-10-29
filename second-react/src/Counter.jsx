@@ -7,10 +7,15 @@ export default function Counter(){
         const newCount = count + 1;
         setCount(newCount);
     }
+    const handleReduce = () => {
+        const newCount = count - 1;
+        setCount(newCount);
+    }
     return (
         <div style={{border: '2px solid #fff'}}>
             <h3>Counter: {count}</h3>
             <button onClick={handleCount}>Add</button>
+            <button onClick={handleReduce}>Reduce</button>
         </div>
     )
 }
