@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Counter from './Counter'
+import Team from './Team'
 
 function App() {
   function handleClick(){
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <h2>React Core Concepts</h2>
+      <Team></Team>
       <Counter></Counter>
       <button onClick={handleClick}>Click Here</button>
       <button onClick={() => addToFive(7)}>Click to Add</button>
