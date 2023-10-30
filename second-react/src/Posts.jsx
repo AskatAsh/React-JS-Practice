@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Post from "./post"
 
 export default function Posts(){
 
@@ -13,6 +14,9 @@ export default function Posts(){
     return (
         <div>
             <h4>Posts: {posts.length}</h4>
+            {
+                posts.map(post => <Post post={post}></Post>)
+            }
         </div>
     )
 }
