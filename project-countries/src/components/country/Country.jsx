@@ -7,7 +7,7 @@ const Country = ({ country }) => {
     const { name, flags, capital, population, languages } = country;
     const [visited, setVisited] = useState(false);
     const handleVisited = () => {
-        setVisited(true);
+        setVisited(!visited);
     }
     if (!languages) {
         return null;
