@@ -1,4 +1,5 @@
-const Country = () => {
+const Country = ({country}) => {
+    console.log(country);
     return (
         <div>
             
