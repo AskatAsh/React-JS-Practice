@@ -2,6 +2,9 @@
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 15px;
-    margin: 15px;
+    /* margin: 15px; */
     text-align: center;
+}
+.flag{
+    max-width: 100%;
 }

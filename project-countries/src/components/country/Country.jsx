@@ -7,7 +7,7 @@ const Country = ({country}) => {
     return (
         <div className='country'>
             <h3>Name: {name?.common}</h3>
-            <img src={flags.png} alt={flags.alt} />
+            <img src={flags.png} alt={flags.alt} className='flag'/>
             <p><b>Capital:</b> {capital}, <b>Population:</b> {population}</p>
         </div>
     );
