@@ -9,7 +9,7 @@ const Country = ({ country }) => {
         return null;
     }
     const language = Object.values(languages);
-    console.log(language);
+    // console.log(language);
     return (
         <div className='country'>
             <h3>Name: {name?.common}</h3>
