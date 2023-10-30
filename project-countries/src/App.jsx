@@ -1,9 +1,11 @@
 import './App.css'
+import Countries from './components/countries/Countries'
 
 function App() {
   return (
     <>
-      <h3>Countries in the World</h3>
+      <h1>Countries in the World</h1>
+      <Countries></Countries>
     </>
   )
 }
