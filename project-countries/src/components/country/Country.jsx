@@ -16,13 +16,18 @@ const Country = ({ country }) => {
     // console.log(language);
 
     return (
-        <div className='country'>
+        <div className={`country ${visited && 'visited'}`}>
             <h3>Name: {name?.common}</h3>
             <img src={flags.png} alt={flags.alt} className='flag' />
             <p><b>Capital:</b> {capital}, <b>Population:</b> {population}</p>
             <p><b>Language: </b>{language[0]}</p>
-            <button onClick={handleVisited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Visit"}</button>
-            
+
+            <div className='flex-button'>
+                <button onClick={handleVisited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Travel"}</button>
+                <button>Add to List</button>
+            </div>
+
+
         </div>
     );
 };

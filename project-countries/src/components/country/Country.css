@@ -11,3 +11,13 @@
 .fa-solid{
     font-size: 1.25rem;
 }
+.visited{
+    background-color: lightgray;
+    color: #242424;
+}
+.flex-button{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
