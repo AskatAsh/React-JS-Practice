@@ -8,6 +8,7 @@ const Country = ({ country, handleVisitedCountry }) => {
     const [visited, setVisited] = useState(false);
     const handleVisited = () => {
         setVisited(!visited);
+        handleVisitedCountry(country);
     }
     if (!languages) {
         return null;
@@ -25,7 +26,7 @@ const Country = ({ country, handleVisitedCountry }) => {
 
             <div className='flex-button'>
                 <button onClick={handleVisited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Travel"}</button>
-                <button onClick={() => handleVisitedCountry(country)}>Add to List</button>
+                {/* <button onClick={() => handleVisitedCountry(country)}>Add to List</button> */}
             </div>
 
 

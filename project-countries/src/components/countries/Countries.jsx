@@ -14,11 +14,12 @@ const Countries = () => {
 
     const handleVisitedCountry = (country) => {
         console.log("Add to visited coutries list");
-        // console.log(country);
+        
         const newVisited = [...visitedCountries, country];
         setVisitedCountries(newVisited);
+        // console.log(country);
     }
-
+    
     return (
         <div>
             <h3 style={{textAlign: 'center'}}>Countries: {countries.length}</h3>
