@@ -4,3 +4,13 @@
     justify-content: center;
     gap: 20px;
 }
+.list-visited{
+    display: flex;
+    gap: 5px;
+}
+.list-visited > li{
+    list-style-type: none;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 5px 10px;
+}

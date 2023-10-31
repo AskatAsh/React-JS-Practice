@@ -24,7 +24,7 @@ const Countries = () => {
             <h3 style={{textAlign: 'center'}}>Countries: {countries.length}</h3>
             <div>
                 <h4>Visited Countries: {visitedCountries.length}</h4>
-                <ul>
+                <ul className="list-visited">
                     {
                         visitedCountries.map(country => <li key={country.cca3}>{country.name.common}</li>)
                     }
