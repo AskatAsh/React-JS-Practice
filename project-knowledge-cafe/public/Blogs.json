@@ -54,19 +54,5 @@
             "frontend",
             "statemanagement"
         ]
-    },
-    {
-        "id": 5,
-        "cover_img": "https://i.ibb.co/Pcx18p8/beginners.png",
-        "title": "JavaScript for Beginners: Start Programming Today",
-        "author": "Michael Turner",
-        "author_img": "https://i.ibb.co/ZVVRGJb/profile.png",
-        "posted_date": "2023-06-25",
-        "reading_time": 40,
-        "hashtags": [
-            "javascript",
-            "programming",
-            "learning"
-        ]
     }
 ]
