@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "cover_img": "https://i.ibb.co/BP0wT0Y/1.jpg",
+        "title": "Javascript ES6 Modules and how to use them effectively",
+        "author": "John Doe",
+        "author_img": "https://example.com/author1.jpg",
+        "posted_date": "2023-10-15",
+        "reading_time": 45,
+        "hashtags": [
+            "javascript",
+            "ES6",
+            "modules"
+        ]
+    },
+    {
+        "id": 2,
+        "cover_img": "https://i.ibb.co/PC2YGXJ/2.png",
+        "title": "React Fundamentals: Building Web Applications",
+        "author": "Jane Smith",
+        "author_img": "https://example.com/author2.jpg",
+        "posted_date": "2023-09-20",
+        "reading_time": 60,
+        "hashtags": [
+            "react",
+            "javascript",
+            "frontend"
+        ]
+    },
+    {
+        "id": 3,
+        "cover_img": "https://i.ibb.co/Jv3xv8D/Rectangle-1.png",
+        "title": "Effective JavaScript Programming Techniques",
+        "author": "David Johnson",
+        "author_img": "https://example.com/author3.jpg",
+        "posted_date": "2023-08-05",
+        "reading_time": 30,
+        "hashtags": [
+            "javascript",
+            "programming",
+            "bestpractices"
+        ]
+    },
+    {
+        "id": 4,
+        "cover_img": "https://i.ibb.co/RjqKrhH/3.png",
+        "title": "React State Management: Tips and Tricks",
+        "author": "Emily Davis",
+        "author_img": "https://example.com/author4.jpg",
+        "posted_date": "2023-07-12",
+        "reading_time": 50,
+        "hashtags": [
+            "react",
+            "frontend",
+            "statemanagement"
+        ]
+    },
+    {
+        "id": 5,
+        "cover_img": "https://i.ibb.co/Pcx18p8/beginners.png",
+        "title": "JavaScript for Beginners: Start Programming Today",
+        "author": "Michael Turner",
+        "author_img": "https://example.com/author5.jpg",
+        "posted_date": "2023-06-25",
+        "reading_time": 40,
+        "hashtags": [
+            "javascript",
+            "programming",
+            "learning"
+        ]
+    }
+]
