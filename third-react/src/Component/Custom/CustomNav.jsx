@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "../Links/Link";
 import { HiMenuAlt2 } from 'react-icons/hi';
+import { IoMdClose } from 'react-icons/io';
 
 const CustomNav = () => {
     const [open, setOpen] = useState(false);
@@ -17,9 +18,9 @@ const CustomNav = () => {
         <nav>
             <div className="md:hidden" onClick={() => setOpen(!open)}>
                 {
-                    open === true ? "Open" : "Close"
+                    open === true ? <IoMdClose className="text-2xl"></IoMdClose> : <HiMenuAlt2 className="text-2xl"></HiMenuAlt2>
                 }
-                <HiMenuAlt2 className="text-2xl"></HiMenuAlt2>
+                {/* <HiMenuAlt2 className="text-2xl"></HiMenuAlt2> */}
             </div>
             <ul className="md:flex gap-10">
                 {
