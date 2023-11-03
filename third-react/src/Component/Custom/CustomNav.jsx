@@ -24,7 +24,7 @@ const CustomNav = () => {
             </div>
             <ul className={`md:flex gap-10 duration-500 absolute
             ${open ? 'left-10' : '-left-40'} 
-            shadow-xl shadow-gray-300 p-5 border-gray-800 border-2 rounded-md`}>
+            shadow-xl shadow-gray-300 p-3 border-gray-800 border-2 rounded-md`}>
                 {
                     routesData.map(route => <Link key={route.id} route={route}></Link>)
                 }
