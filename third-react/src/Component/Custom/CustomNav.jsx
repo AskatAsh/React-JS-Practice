@@ -9,7 +9,7 @@ const CustomNav = () => {
 
     return (
         <nav>
-            <ul>
+            <ul className="md:flex gap-10">
                 {
                     routesData.map(route => <li key={route.id}><a href={route.path}>{route.name}</a></li>)
                 }
