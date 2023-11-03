@@ -1,4 +1,5 @@
 import Link from "../Links/Link";
+import { FaBeer } from 'react-icons/fa';
 
 const CustomNav = () => {
     const routesData = [
@@ -11,6 +12,7 @@ const CustomNav = () => {
 
     return (
         <nav>
+            <FaBeer></FaBeer>
             <ul className="md:flex gap-10">
                 {
                     routesData.map(route => <Link key={route.id} route={route}></Link>)
