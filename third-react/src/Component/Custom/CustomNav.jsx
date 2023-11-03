@@ -1,3 +1,5 @@
+import Link from "../Links/Link";
+
 const CustomNav = () => {
     const routesData = [
         { id: 1, name: "Home", path: "/" },
@@ -11,7 +13,7 @@ const CustomNav = () => {
         <nav>
             <ul className="md:flex gap-10">
                 {
-                    routesData.map(route => <li key={route.id}><a href={route.path}>{route.name}</a></li>)
+                    routesData.map(route => <Link key={route.id} route={route}></Link>)
                 }
             </ul>
         </nav>
