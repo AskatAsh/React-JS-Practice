@@ -22,9 +22,9 @@ const CustomNav = () => {
                 }
                 {/* <HiMenuAlt2 className="text-2xl"></HiMenuAlt2> */}
             </div>
-            <ul className={`md:flex gap-10 duration-500 absolute
+            <ul className={`md:flex gap-10 duration-500 absolute md:static
             ${open ? 'left-10' : '-left-40'} 
-            shadow-xl shadow-gray-300 p-3 border-gray-800 border-2 rounded-md`}>
+            shadow-xl shadow-gray-300 p-3 border-gray-800 border-2 md:border-none md:shadow-none rounded-md`}>
                 {
                     routesData.map(route => <Link key={route.id} route={route}></Link>)
                 }
