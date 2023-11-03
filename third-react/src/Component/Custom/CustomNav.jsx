@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Link from "../Links/Link";
-import { FaBeer } from 'react-icons/fa';
+import { HiMenuAlt2 } from 'react-icons/hi';
 
 const CustomNav = () => {
+    const [open, setOpen] = useState(false);
+
     const routesData = [
         { id: 1, name: "Home", path: "/" },
         { id: 2, name: "About", path: "/about" },
@@ -12,7 +15,12 @@ const CustomNav = () => {
 
     return (
         <nav>
-            <FaBeer></FaBeer>
+            <div className="md:hidden" onClick={() => setOpen(!open)}>
+                {
+                    open === true ? "Open" : "Close"
+                }
+                <HiMenuAlt2 className="text-2xl"></HiMenuAlt2>
+            </div>
             <ul className="md:flex gap-10">
                 {
                     routesData.map(route => <Link key={route.id} route={route}></Link>)
