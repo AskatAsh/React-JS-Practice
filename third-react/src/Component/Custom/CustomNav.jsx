@@ -16,13 +16,15 @@ const CustomNav = () => {
 
     return (
         <nav>
-            <div className="md:hidden" onClick={() => setOpen(!open)}>
+         <div className="md:hidden text-2xl p-2" onClick={() => setOpen(!open)}>
                 {
-                    open === true ? <IoMdClose className="text-2xl"></IoMdClose> : <HiMenuAlt2 className="text-2xl"></HiMenuAlt2>
+                    open === true ? <IoMdClose></IoMdClose> : <HiMenuAlt2></HiMenuAlt2>
                 }
                 {/* <HiMenuAlt2 className="text-2xl"></HiMenuAlt2> */}
             </div>
-            <ul className="md:flex gap-10">
+            <ul className={`md:flex gap-10 duration-500 absolute
+            ${open ? 'left-10' : '-left-40'} 
+            shadow-xl shadow-gray-300 p-5 border-gray-800 border-2 rounded-md`}>
                 {
                     routesData.map(route => <Link key={route.id} route={route}></Link>)
                 }
