@@ -1,4 +1,4 @@
-import { LineChart as LChart, Line } from 'recharts';
+import { LineChart as LChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 const LineChart = () => {
 
@@ -13,12 +13,19 @@ const LineChart = () => {
         { id: 8, name: "Student 8", mark: 84 },
         { id: 9, name: "Student 9", mark: 89 },
         { id: 10, name: "Student 10", mark: 93 },
-      ];
-      
+    ];
+
     return (
-            <LChart width={500} height={400} data={studentMarks}>
-                <Line type="monotone" dataKey="id" stroke="#272727"></Line>
+        <div className='flex flex-col items-center my-20'>
+            <h3 className='text-3xl font-bold mb-10'>Line Chart of 10 Student Marks</h3>
+            <LChart width={700} height={400} data={studentMarks}>
+                <Line type="monotone" dataKey="mark" stroke="#272727"></Line>
+                <CartesianGrid stroke="#ccc" />
+                <XAxis dataKey="name" />
+                <YAxis />
             </LChart>
+        </div>
+
     );
 };
 
