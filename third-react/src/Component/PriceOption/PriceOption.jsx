@@ -12,7 +12,7 @@ function PriceOption({option}) {
                     features.map((feature, idx) => <Features key={idx} feature={feature}></Features>)
                 }
             </ul>
-            <button className='btn bg-gray-800 text-white font-bold tracking-wider my-5 w-full'>Purchase</button>
+            <button className='btn border-none bg-gray-800 text-white font-bold tracking-wider my-5 w-full hover:shadow-lg hover:shadow-gray-400'>Purchase</button>
         </div>
     );
 }
