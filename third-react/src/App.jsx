@@ -9,7 +9,7 @@ function App() {
     <>
       <CustomNav></CustomNav>
       {/* <NavBar></NavBar> */}
-      <h1 className='text-5xl font-bold text-center mt-10'>React Third App</h1>
+      {/* <h1 className='text-5xl font-bold text-center mt-10'>React Third App</h1> */}
 
       <PriceOptions></PriceOptions>
     </>
