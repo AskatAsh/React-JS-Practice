@@ -20,7 +20,7 @@ const LineChart = () => {
             <h3 className='text-3xl font-bold mb-10'>Line Chart of 10 Student Marks</h3>
             <LChart width={700} height={400} data={studentMarks}>
                 <Line type="monotone" dataKey="mark" stroke="#272727"></Line>
-                <CartesianGrid stroke="#ccc" />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <XAxis dataKey="name" />
                 <YAxis />
             </LChart>
