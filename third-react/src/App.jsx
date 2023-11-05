@@ -1,6 +1,7 @@
 import './App.css'
 import CustomNav from './Component/Custom/CustomNav'
 import LineChart from './Component/LineChart/LineChart'
+import Phone from './Component/Phone/Phone'
 import PriceOptions from './Component/PriceOptions/PriceOptions'
 // import NavBar from './Component/Header/NavBar'
 
@@ -14,6 +15,7 @@ function App() {
 
       <PriceOptions></PriceOptions>
       <LineChart></LineChart>
+      <Phone></Phone>
     </>
   )
 }
