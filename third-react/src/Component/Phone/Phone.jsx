@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+
 const Phone = () => {
     const [phones, setPhones] = useState([]);
     // useEffect(() => {
@@ -8,22 +11,29 @@ const Phone = () => {
     //     .then(data => setPhones(data.data))
     // }, [])
     axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
-    // .then(data => console.log(data.data.data))
-    .then(data => {
-        const phonesData = data.data.data;
-        const phonesFakeData = phonesData.map(phone => {
-            const obj = {
-                name: phone.phone_name,
-                price: parseInt(phone.slug.split('-')[1])
-            }
-            return obj;
+        // .then(data => console.log(data.data.data))
+        .then(data => {
+            const phonesData = data.data.data;
+            const phonesFakeData = phonesData.map(phone => {
+                const obj = {
+                    name: phone.phone_name,
+                    price: parseInt(phone.slug.split('-')[1])
+                }
+                return obj;
+            })
+            // console.log(phonesFakeData);
+            setPhones(phonesFakeData);
         })
-        // console.log(phonesFakeData);
-        setPhones(phonesFakeData);
-    })
+
     return (
-        <div>
-            <h2 className="text-3xl">Phones: </h2>
+        <div className='flex flex-col items-center my-20'>
+            <h2 className="text-3xl">Phones: {phones.length}</h2>
+            <BarChart width={600} height={400} data={phones}>
+                <Bar dataKey="price" fill="#8884d8" />
+                <XAxis dataKey={'name'}/>
+                <YAxis />
+                <Tooltip />
+            </BarChart>
         </div>
     );
 };
