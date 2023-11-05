@@ -1,0 +1,6 @@
+.price_option{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
+    justify-content: center;
+    gap: 1.25rem;
+}
