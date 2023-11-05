@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 
 const Phone = () => {
@@ -28,7 +29,7 @@ const Phone = () => {
     return (
         <div className='flex flex-col items-center my-20'>
             <h2 className="text-3xl font-semibold my-10">Phones: {phones.length}</h2>
-            <BarChart width={700} height={400} data={phones}>
+            <BarChart width={1200} height={400} data={phones}>
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <Bar dataKey="price" fill="#8884d8" />
                 <XAxis dataKey={'name'} />
