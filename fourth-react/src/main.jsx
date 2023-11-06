@@ -12,11 +12,12 @@ import Header from './Components/Header/Header.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home></Home>
-  },
-  {
-    path: '/header',
-    element: <Header></Header>
+    element: <Home></Home>,
+    children: [
+      {
+        path: '/about'
+      }
+    ]
   }
 ])
 
