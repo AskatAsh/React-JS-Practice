@@ -1,0 +1,6 @@
+a{
+    margin: 8px;
+}
+a.active{
+    text-decoration: underline;
+}
