@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { Link, useNavigate } from 'react-router-dom';
+// import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const User = ({user}) => {
     const {id, name, phone, email, website} = user;
