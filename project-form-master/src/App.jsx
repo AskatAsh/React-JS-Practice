@@ -6,6 +6,11 @@ import ReusableForm from './Component/ReusableForm/ReusableForm'
 // import SimpleForm from './Component/SimpleForm/SimpleForm'
 function App() {
 
+  const handleSignUpSubmit = e => {
+    e.preventDefault();
+    console.log("Form submitted");
+}
+
   return (
     <>
       <h1>Simple React Form</h1>
@@ -13,8 +18,8 @@ function App() {
       {/* <StatefullForm></StatefullForm> */}
       {/* <RefForm></RefForm> */}
       {/* <HookForm></HookForm> */}
-      <ReusableForm formTitle={"Sign Up"} submitBtnText={"Sign Up"}></ReusableForm>
-      <ReusableForm formTitle={"Log In"} submitBtnText={"Log In"}></ReusableForm>
+      <ReusableForm formTitle={"Sign Up"} submitBtnText={"Sign Up"} handleSubmit={handleSignUpSubmit}></ReusableForm>
+      <ReusableForm formTitle={"Log In"} submitBtnText={"Log In"} handleSubmit={handleSignUpSubmit}></ReusableForm>
     </>
   )
 }

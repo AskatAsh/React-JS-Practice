@@ -1,11 +1,8 @@
 // import { Children } from "react";
 import PropTypes from 'prop-types';
 
-const ReusableForm = ({formTitle, submitBtnText}) => {
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log("Form submitted");
-    }
+const ReusableForm = ({formTitle, submitBtnText='Submit', handleSubmit} ) => {
+    
 
     return (
         <div>
@@ -25,7 +22,8 @@ const ReusableForm = ({formTitle, submitBtnText}) => {
 
 ReusableForm.propTypes = {
     formTitle: PropTypes.string,
-    submitBtnText: PropTypes.string
+    submitBtnText: PropTypes.string,
+    handleSubmit: PropTypes.func
 };
 
 export default ReusableForm;
