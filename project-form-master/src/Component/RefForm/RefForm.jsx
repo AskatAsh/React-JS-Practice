@@ -16,10 +16,10 @@ const RefForm = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input ref={nameRef}
-                type="text" name="name" placeholder="Your name"/>
+                type="text" name="name" placeholder="Your name" />
                 <br />
                 <input ref={emailRef}
-                type="email" name="email" placeholder="Your email" />
+                type="email" name="email" placeholder="Your email" defaultValue={"abc@example.com"}/>
                 <br />
                 <input ref={phoneRef}
                 type="number" name="phone" placeholder="Your phone" />
