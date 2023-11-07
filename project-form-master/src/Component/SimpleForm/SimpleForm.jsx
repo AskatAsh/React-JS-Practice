@@ -1,7 +1,11 @@
 const SimpleForm = () => {
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log("Form submitted");
+    }
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Your name"/>
                 <br />
                 <input type="email" name="email" placeholder="Your email" />
