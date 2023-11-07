@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const StatefullForm = () => {
-    const [name, setName] = useState('');
+    const [name, setName] = useState('your name');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [error, setError] = useState('');
