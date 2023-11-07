@@ -4,7 +4,7 @@ import Dad from '../Dad/Dad';
 import Uncle from '../Uncle/Uncle';
 import './Grandpa.css'
 
-const AssetContext = createContext("Gold");
+export const AssetContext = createContext("Gold");
 const Grandpa = () => {
     const ring = "Diamond";
     return (
