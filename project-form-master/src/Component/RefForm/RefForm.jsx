@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const RefForm = () => {
     const nameRef = useRef(null);
@@ -12,6 +12,10 @@ const RefForm = () => {
         console.log(emailRef.current.value);
         console.log(phoneRef.current.value);
     }
+
+    useEffect(() => {
+        nameRef.current.focus();
+    })
     return (
         <div>
             <form onSubmit={handleSubmit}>
