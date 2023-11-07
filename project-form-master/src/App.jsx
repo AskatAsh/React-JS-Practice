@@ -23,8 +23,25 @@ function App() {
       {/* <StatefullForm></StatefullForm> */}
       {/* <RefForm></RefForm> */}
       {/* <HookForm></HookForm> */}
-      <ReusableForm formTitle={"Sign Up"} submitBtnText={"Sign Up"} handleSubmit={handleSignUpSubmit}></ReusableForm>
-      <ReusableForm formTitle={"Log In"} submitBtnText={"Log In"} handleSubmit={handleLogInSubmit}></ReusableForm>
+      <ReusableForm 
+      formTitle={"Sign Up"} 
+      submitBtnText={"Sign Up"} 
+      handleSubmit={handleSignUpSubmit}>
+        <div>
+          <h2>Sign Up</h2>
+          <p>Please sign up right now</p>
+        </div>
+      </ReusableForm>
+
+      <ReusableForm 
+      formTitle={"Log In"} 
+      submitBtnText={"Log In"} 
+      handleSubmit={handleLogInSubmit}>
+        <div>
+          <h2>Log In</h2>
+          <p>Please Log in to Enter</p>
+        </div>
+      </ReusableForm>
     </>
   )
 }
