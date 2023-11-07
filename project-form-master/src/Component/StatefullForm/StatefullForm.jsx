@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const StatefullForm = () => {
-    const [name, setName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [phone, setPhone] = useState(null);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = e => {
