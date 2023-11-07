@@ -1,14 +1,29 @@
-// import useInputState from "../../Hooks/useInputState";
+import useInputState from "../../Hooks/useInputState";
 
 const HookForm = () => {
+    // const [name, handleNameChange] = useInputState('');
+    const nameState = useInputState('');
+    const emailState = useInputState('');
+    const phoneState = useInputState('');
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log('Name: ', nameState.value);
+        console.log('Email: ', emailState.value);
+        console.log('Phone: ', phoneState.value);
+    }
     return (
         <div>
-            <form>
-                <input type="text" name="name" placeholder="Your name"/>
+            <form onSubmit={handleSubmit}>
+                {/* <input value={name} onChange={handleNameChange} */}
+                <input {...nameState}
+                type="text" name="name" placeholder="Your name"/>
                 <br />
-                <input type="email" name="email" placeholder="Your email" />
+                <input {...emailState}
+                type="email" name="email" placeholder="Your email" />
                 <br />
-                <input type="number" name="phone" placeholder="Your phone" />
+                <input {...phoneState}
+                type="number" name="phone" placeholder="Your phone" />
                 <br />
                 <input type="submit" value="Submit" />
             </form>
