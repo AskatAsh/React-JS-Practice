@@ -6,10 +6,15 @@ import ReusableForm from './Component/ReusableForm/ReusableForm'
 // import SimpleForm from './Component/SimpleForm/SimpleForm'
 function App() {
 
-  const handleSignUpSubmit = e => {
-    e.preventDefault();
-    console.log("Form submitted");
-}
+  const handleSignUpSubmit = data => {
+    // e.preventDefault();
+    console.log("Sign Up data: ", data);
+  }
+
+  const handleLogInSubmit = data => {
+    // e.preventDefault();
+    console.log("Log In data: ", data);
+  }
 
   return (
     <>
@@ -19,7 +24,7 @@ function App() {
       {/* <RefForm></RefForm> */}
       {/* <HookForm></HookForm> */}
       <ReusableForm formTitle={"Sign Up"} submitBtnText={"Sign Up"} handleSubmit={handleSignUpSubmit}></ReusableForm>
-      <ReusableForm formTitle={"Log In"} submitBtnText={"Log In"} handleSubmit={handleSignUpSubmit}></ReusableForm>
+      <ReusableForm formTitle={"Log In"} submitBtnText={"Log In"} handleSubmit={handleLogInSubmit}></ReusableForm>
     </>
   )
 }
