@@ -7,7 +7,7 @@ const Navbar = () => {
         <li><NavLink to="/blog">Blog</NavLink></li>
     </>
     return (
-        <div className="bg-[#faf8ff] pt-12">
+        <div className="bg-[#faf8ff] pt-12 pr-4">
             <div className="navbar max-w-[1320px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
