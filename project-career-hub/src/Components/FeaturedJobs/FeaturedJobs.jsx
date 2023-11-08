@@ -9,17 +9,20 @@ const FeaturedJobs = () => {
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
         fetch('jobs.json')
-        .then(res => res.json())
-        .then(data => setJobs(data))
+            .then(res => res.json())
+            .then(data => setJobs(data))
     }, []);
 
     return (
-        <div>
+        <div className="px-5">
             <SectionTitle title={title} subtitle={subtitle}></SectionTitle>
             <p>Number of Jobs: {jobs.length}</p>
-            {
-                jobs.map(job => <Job key={job.id} job={job}></Job>)
-            }
+            <div className="grid justify-center gap-5" style={{gridTemplateColumns: "repeat(auto-fit, minmax(300px, 648px))"}}>
+                {
+                    jobs.map(job => <Job key={job.id} job={job}></Job>)
+                }
+            </div>
+
         </div>
     );
 };
