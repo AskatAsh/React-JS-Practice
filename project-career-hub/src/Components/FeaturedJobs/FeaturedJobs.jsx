@@ -1,8 +1,11 @@
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const FeaturedJobs = () => {
+    const title = "Featured Jobs";
+    const subtitle = "Explore thousands of job opportunities with all the information you need. Its your future";
     return (
         <div>
-            <h2>Featured Jobs</h2>
+            <SectionTitle title={title} subtitle={subtitle}></SectionTitle>
         </div>
     );
 };
