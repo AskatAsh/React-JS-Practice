@@ -1,4 +1,6 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Footer from './Components/Footer/Footer'
 
 function App() {
 
@@ -6,7 +8,8 @@ function App() {
     <>
       
       <h1 className='text-5xl font-bold'>Project Career Hub</h1>
-      
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }
