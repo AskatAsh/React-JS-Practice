@@ -7,14 +7,14 @@ const Job = ({job}) => {
     const {logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = job;
     return (
         <div className='border-2 rounded-md p-10'>
-            <img src={logo} alt={`Image of ${company_name}`} />
-            <h2>{job_title}</h2>
-            <p>{company_name}</p>
-            <div className='flex gap-2'>
-                <span className='px-4 py-2 border-2 border-[#7E90FE] text-[#7E90FE] rounded font-semibold'>{remote_or_onsite}</span>
-                <span className='px-4 py-2 border-2 border-[#7E90FE] text-[#7E90FE] rounded font-semibold'>{job_type}</span>
+            <img src={logo} alt={`Image of ${company_name}`} className='mb-8' />
+            <h2 className='font-extrabold text-xl md:text-2xl'>{job_title}</h2>
+            <p className='font-semibold text-[#757575]'>{company_name}</p>
+            <div className='flex gap-2 my-4 font-semibold'>
+                <span className='px-4 py-2 border-2 border-[#7E90FE] text-[#7E90FE] rounded'>{remote_or_onsite}</span>
+                <span className='px-4 py-2 border-2 border-[#7E90FE] text-[#7E90FE] rounded'>{job_type}</span>
             </div>
-            <div className='flex gap-6'>
+            <div className='flex gap-6 text-[#757575] font-semibold mb-8'>
                 <p className='flex items-center gap-2'><img src={locationIcon} alt="" />{location}</p>
                 <p className='flex items-center gap-2'><img src={moneyIcon} alt="" />Salary: {salary}</p>
             </div>

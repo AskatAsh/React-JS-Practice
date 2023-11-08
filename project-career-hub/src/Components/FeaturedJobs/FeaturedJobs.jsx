@@ -17,7 +17,7 @@ const FeaturedJobs = () => {
         <div className="px-5">
             <SectionTitle title={title} subtitle={subtitle}></SectionTitle>
             <p>Number of Jobs: {jobs.length}</p>
-            <div className="grid justify-center gap-5" style={{gridTemplateColumns: "repeat(auto-fit, minmax(300px, 648px))"}}>
+            <div className="grid justify-center gap-5 mt-8" style={{gridTemplateColumns: "repeat(auto-fit, minmax(300px, 648px))"}}>
                 {
                     jobs.map(job => <Job key={job.id} job={job}></Job>)
                 }
