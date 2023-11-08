@@ -1,9 +1,13 @@
+import CategoryList from "../CategoryList/CategoryList";
+import FeaturedJobs from "../FeaturedJobs/FeaturedJobs";
 import Hero from "../Hero/Hero";
 
 const Home = () => {
     return (
-        <div className="bg-[#faf8ff]">
+        <div>
             <Hero></Hero>
+            <CategoryList></CategoryList>
+            <FeaturedJobs></FeaturedJobs>
         </div>
     );
 };
