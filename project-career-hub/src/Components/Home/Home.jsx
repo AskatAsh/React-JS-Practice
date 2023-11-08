@@ -2,7 +2,7 @@ import Hero from "../Hero/Hero";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-[#faf8ff]">
             <Hero></Hero>
         </div>
     );
