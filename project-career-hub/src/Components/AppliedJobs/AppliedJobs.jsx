@@ -22,23 +22,22 @@ const AppliedJobs = () => {
 
     const handlefilterData = (filter) => {
         if (filter === "all") {
-            console.log("Selected All");
-            const allApplied = appliedJobs.map(job => job);
-            setFilterData(allApplied);
-            console.log(allApplied);
+            // console.log("Selected All");
+            // const allApplied = appliedJobs.map(job => job);
+            setFilterData(appliedJobs);
+            // console.log(allApplied);
         }
         else if (filter === "remote") {
-            console.log("Selected Remote");
+            // console.log("Selected Remote");
             const remoteApplied = appliedJobs.filter(job => job.remote_or_onsite === "Remote");
             setFilterData(remoteApplied);
-            console.log(remoteApplied);
+            // console.log(remoteApplied);
         }
         else if (filter === "onSite") {
-            console.log("Selected onSite");
+            // console.log("Selected onSite");
             const onsiteApplied = appliedJobs.filter(job => job.remote_or_onsite === "Onsite");
             setFilterData(onsiteApplied);
-            console.log(onsiteApplied);
-
+            // console.log(onsiteApplied);
         }
 
         console.log(filterData);
