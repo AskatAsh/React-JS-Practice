@@ -18,7 +18,7 @@ const Job = ({job}) => {
                 <p className='flex items-center gap-2'><img src={locationIcon} alt="" />{location}</p>
                 <p className='flex items-center gap-2'><img src={moneyIcon} alt="" />Salary: {salary}</p>
             </div>
-            <Link className="text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold">View Details</Link>
+            <Link to={`/job/${job.id}`} className="text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold">View Details</Link>
         </div>
     );
 };
