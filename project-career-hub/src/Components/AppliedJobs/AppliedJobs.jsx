@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJob } from "../../Utilities/LocalStorage";
 import AppliedJob from "../AppliedJob/AppliedJob";
+import downArrow from '../../assets/icons/downArrow.svg'
 
 const AppliedJobs = () => {
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -20,7 +21,7 @@ const AppliedJobs = () => {
         <div className="max-w-[1320px] mx-auto my-32">
             <div className="flex justify-end my-8">
                 <details className="dropdown">
-                    <summary className="m-1 btn">Filter By</summary>
+                    <summary className="m-1 btn">Filter By {<img src={downArrow} alt="" className="w-4"/>}</summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                         <li><a>Item 1</a></li>
                         <li><a>Item 2</a></li>
