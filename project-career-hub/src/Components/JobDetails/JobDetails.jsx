@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveAppliedJobs } from "../../Utilities/LocalStorage";
 
 
 const JobDetails = () => {
@@ -12,6 +13,7 @@ const JobDetails = () => {
     const { salary, job_description, job_responsibility, educational_requirements, experiences } = foundJob;
 
     const handleApplyJob = () => {
+        saveAppliedJobs(id);
         toast("You have Applied Successfully!");
     }
     return (
@@ -35,11 +37,11 @@ const JobDetails = () => {
                         <span>{experiences}</span>
                     </p>
                 </div>
-                <div className="p-7 rounded-md" style={{ background: "linear-gradient(90deg, rgba(126, 144, 254, 0.10) 0%, rgba(152, 115, 255, 0.10) 100%" }}>
+                <div className="p-7 rounded-md flex flex-col" style={{ background: "linear-gradient(90deg, rgba(126, 144, 254, 0.10) 0%, rgba(152, 115, 255, 0.10) 100%" }}>
                     <h2 className="text-xl font-extrabold">Job Details</h2>
                     <hr className="my-6" />
                     <p className="text-[#474747]"><span className="text-base font-semibold">Salaray: </span>{salary}</p>
-                    <button onClick={handleApplyJob} className="text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold">Apply Now</button>
+                    <button onClick={handleApplyJob} className="text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold mt-6">Apply Now</button>
                 </div>
             </section>
             <ToastContainer />
