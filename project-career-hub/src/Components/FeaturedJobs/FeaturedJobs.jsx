@@ -18,7 +18,7 @@ const FeaturedJobs = () => {
         setShowJobs(jobs.length);
     }
     return (
-        <div className="px-5">
+        <div className="px-5 mb-28">
             <SectionTitle title={title} subtitle={subtitle}></SectionTitle>
             {/* <p>Number of Jobs: {jobs.length}</p> */}
             <div className="grid justify-center gap-5 mt-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 648px))" }}>
