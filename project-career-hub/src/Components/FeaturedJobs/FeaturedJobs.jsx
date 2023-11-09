@@ -14,6 +14,9 @@ const FeaturedJobs = () => {
             .then(data => setJobs(data))
     }, []);
 
+    const handleShowAll = () => {
+        setShowJobs(jobs.length);
+    }
     return (
         <div className="px-5">
             <SectionTitle title={title} subtitle={subtitle}></SectionTitle>
@@ -24,7 +27,7 @@ const FeaturedJobs = () => {
                 }
             </div>
             <div className={`flex justify-center my-10 ${showJobs == jobs.length ? 'hidden' : ''}`}>
-                <button className= "text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold">Show All Jobs</button>
+                <button onClick={handleShowAll} className= "text-lg btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white capitalize font-bold">Show All Jobs</button>
             </div>
         </div>
     );
