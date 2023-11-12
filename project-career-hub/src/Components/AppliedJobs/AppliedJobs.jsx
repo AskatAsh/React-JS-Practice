@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { getStoredJob } from "../../Utilities/LocalStorage";
 import AppliedJob from "../AppliedJob/AppliedJob";
 import downArrow from '../../assets/icons/downArrow.svg'
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -44,7 +45,11 @@ const AppliedJobs = () => {
     }
 
     return (
+        
         <div className="max-w-[1320px] mx-auto my-32">
+            <Helmet>
+                <title>Career Hub | Applied Jobs</title>
+            </Helmet>
             <div className="flex justify-end my-8">
                 <details className="dropdown">
                     <summary className="m-1 btn">Filter By {<img src={downArrow} alt="" className="w-4" />}</summary>

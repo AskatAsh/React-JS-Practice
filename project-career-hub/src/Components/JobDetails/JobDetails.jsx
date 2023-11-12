@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveAppliedJobs } from "../../Utilities/LocalStorage";
+import { Helmet } from "react-helmet-async";
 
 
 const JobDetails = () => {
@@ -18,6 +19,9 @@ const JobDetails = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Career Hub | Job Details</title>
+            </Helmet>
             <div className="flex justify-center bg-[#faf8ff] py-28 text-[#1A1919]">
                 <h2 className="text-4xl font-extrabold">Job Details</h2>
             </div>
