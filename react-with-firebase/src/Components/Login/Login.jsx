@@ -31,9 +31,13 @@ const Login = () => {
     }
     return (
         <div>
-            <div style={{ margin: "40px 0px", display: "flex", gap: "10px" }}>
-                <button onClick={handleGoogleLogin}>Google Login</button>
-                <button onClick={handleSignOut}>Sign Out</button>
+            <div style={{ margin: "40px 0px", display: "flex", gap: "10px", justifyContent: "center" }}>
+                {
+                    user ? <button onClick={handleSignOut}>Sign Out</button>
+                        : <button onClick={handleGoogleLogin}>Google Login</button>
+                }
+
+
             </div>
 
             {user &&
