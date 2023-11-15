@@ -16,6 +16,10 @@ const Register = () => {
             setMessage("Password should be at least 6 characters long.");
             return;
         }
+        else if(!/[A-Z].*[0-9].*[^a-zA-Z0-9_]/.test(password)){
+            setMessage("Password must contain at least one digit, uppercase letter and special character.");
+            return;
+        }
         setMessage('');
         setSuccess('');
 
