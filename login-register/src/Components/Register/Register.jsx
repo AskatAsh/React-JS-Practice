@@ -1,10 +1,16 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const [message, setMessage] = useState('');
     const [success, setSuccess] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -12,11 +18,11 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
-        if(password.length < 6){
+        if (password.length < 6) {
             setMessage("Password should be at least 6 characters long.");
             return;
         }
-        else if(!/[A-Z].*[0-9].*[^a-zA-Z0-9_]/.test(password)){
+        else if (!/(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9_]).*/.test(password)) {
             setMessage("Password must contain at least one digit, uppercase letter and special character.");
             return;
         }
@@ -24,13 +30,13 @@ const Register = () => {
         setSuccess('');
 
         createUserWithEmailAndPassword(auth, email, password)
-        .then(result => {
-            console.log(result);
-            setSuccess("Your Information has been Successfully Registered.");
-        }).catch(error => {
-            setMessage(error.code);
-            console.log(error.code);
-        })
+            .then(result => {
+                console.log(result);
+                setSuccess("Your Information has been Successfully Registered.");
+            }).catch(error => {
+                setMessage(error.code);
+                console.log(error.code);
+            })
     }
     return (
         <div>
@@ -52,10 +58,19 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name="password" type="password" placeholder="password" className="input input-bordered" required />
+                                <div className="flex items-center border rounded-lg overflow-hidden border-[#383F47]">
+                                    <input name="password" type={showPassword ? "text" : "password"}
+                                        placeholder="password" className="input input-bordered flex-1 border-none" required />
+                                    <span onClick={handleShowPassword} className="text-xl px-3">
+                                        {
+                                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                        }
+                                    </span>
+                                </div>
+
                                 <label className="label text-xs">
-                                    {message ? <span className="text-red-400">{message}</span> 
-                                    : <span className="text-green-400">{success}</span>}
+                                    {message ? <span className="text-red-400">{message}</span>
+                                        : <span className="text-green-400">{success}</span>}
                                 </label>
                             </div>
                             <div className="form-control mt-6">
