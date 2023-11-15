@@ -4,17 +4,22 @@ import { useState } from "react";
 
 const Register = () => {
     const [message, setMessage] = useState('');
+    const [success, setSuccess] = useState('');
+
     const handleRegister = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
+        setMessage('');
+        setSuccess('');
 
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
             console.log(result);
+            setSuccess("Your Information has been Successfully Registered.");
         }).catch(error => {
-            setMessage(error.message);
+            setMessage(error.code);
             console.log(error.code);
         })
     }
@@ -39,8 +44,9 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input name="password" type="password" placeholder="password" className="input input-bordered" required />
-                                <label className="label text-xs text-red-400">
-                                    {message ? message : ''}
+                                <label className="label text-xs">
+                                    {message ? <span className="text-red-400">{message}</span> 
+                                    : <span className="text-green-400">{success}</span>}
                                 </label>
                             </div>
                             <div className="form-control mt-6">
