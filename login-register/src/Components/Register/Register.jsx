@@ -58,10 +58,10 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <div className="flex items-center border rounded-lg overflow-hidden border-[#383F47]">
+                                <div className="flex items-center relative">
                                     <input name="password" type={showPassword ? "text" : "password"}
-                                        placeholder="password" className="input input-bordered flex-1 border-none" required />
-                                    <span onClick={handleShowPassword} className="text-xl px-3">
+                                        placeholder="password" className="input input-bordered flex-1" required />
+                                    <span onClick={handleShowPassword} className="text-xl p-2 absolute right-2 rounded-full hover:bg-slate-700 ">
                                         {
                                             showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                         }
