@@ -16,7 +16,8 @@ const Register = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        const accepted = e.target.terms.checked
+        console.log(email, password, accepted);
 
         if (password.length < 6) {
             setMessage("Password should be at least 6 characters long.");
@@ -24,6 +25,11 @@ const Register = () => {
         }
         else if (!/(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9_]).*/.test(password)) {
             setMessage("Password must contain at least one digit, uppercase letter and special character.");
+            return;
+        }
+
+        if(!accepted){
+            setMessage("Please Accept Our Terms and Conditions");
             return;
         }
         setMessage('');
@@ -67,13 +73,21 @@ const Register = () => {
                                         }
                                     </span>
                                 </div>
+                                
+                                <div className="flex justify-start gap-3 my-4">
+                                    <input type="checkbox" name="terms" id="terms" />
+                                    <label htmlFor="terms">Please accept our
+                                        <a href="#" className="text-primary"> Terms & Conditions</a>
+                                    </label>
+                                </div>
 
                                 <label className="label text-xs">
                                     {message ? <span className="text-red-400">{message}</span>
                                         : <span className="text-green-400">{success}</span>}
                                 </label>
+                                
                             </div>
-                            <div className="form-control mt-6">
+                            <div className="form-control mt-3">
                                 <input type="submit" value="Register" className="btn btn-primary" />
                             </div>
                         </form>
