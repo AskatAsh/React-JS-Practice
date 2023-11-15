@@ -42,7 +42,7 @@ const Register = () => {
                 console.log(result);
                 setSuccess("Your Information has been Successfully Registered.");
 
-                updateProfile(auth.currentUser, {
+                updateProfile(result.user, {
                     displayName: name, photoURL: "https://example.com/jane-q-user/profile.jpg"
                 }).then(() => {
                     console.log("user verified");
