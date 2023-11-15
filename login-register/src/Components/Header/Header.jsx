@@ -11,7 +11,7 @@ const Header = () => {
 
             <ul className='flex gap-5 justify-center items-center'>
                 <li className='font-semibold text-blue-700'>
-                    <Link to='/'>
+                    <Link to='/login'>
                         <button className="btn btn-outline btn-primary">Login</button>
                     </Link>
                 </li>
