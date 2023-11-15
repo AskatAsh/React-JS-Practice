@@ -1,5 +1,19 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
 
 const Register = () => {
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            console.log(result);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
     return (
         <div>
             <div className="hero bg-base-200">
@@ -9,7 +23,7 @@ const Register = () => {
                         <p className="py-6 max-w-xl">Register User and Authentication using firebase and react</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form className="card-body" onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -26,7 +40,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <input type="submit" value="Register" className="btn btn-primary" />
                             </div>
                         </form>
                     </div>
