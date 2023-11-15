@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     const [message, setMessage] = useState('');
@@ -50,7 +51,9 @@ const Register = () => {
                 <div className="hero-content flex-col items-center py-10">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Register now!</h1>
-                        <p className="py-6 max-w-xl">Register User and Authentication using firebase and react</p>
+                        <p className="py-6 max-w-xl">
+                            Already have an account? <Link to="/login" className="text-primary hover:underline">Login Now!</Link>
+                        </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body" onSubmit={handleRegister}>
@@ -73,7 +76,7 @@ const Register = () => {
                                         }
                                     </span>
                                 </div>
-                                
+
                                 <div className="flex justify-start gap-3 my-4">
                                     <input type="checkbox" name="terms" id="terms" />
                                     <label htmlFor="terms">Please accept our

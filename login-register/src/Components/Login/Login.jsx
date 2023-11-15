@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -33,7 +34,7 @@ const Login = () => {
     return (
         <div>
             <div className="hero">
-                <div className="hero-content flex-col items-center py-10">
+                <div className="hero-content flex-col items-center py-10 w-full">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6 max-w-xl">Login with email and password using firbase</p>
@@ -60,7 +61,7 @@ const Login = () => {
                                     </span>
                                 </div>
                                 <label className="label my-2">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt text-primary hover:underline">Forgot password?</a>
                                 </label>
 
                                 <label className="label text-xs">
@@ -72,6 +73,9 @@ const Login = () => {
                             <div className="form-control mt-3">
                                 <input type="submit" value="Login" className="btn btn-primary" />
                             </div>
+                            <p className="text-slate-400 text-xs mt-2">
+                                Are you new to this website? <Link to="/register" className="text-primary underline">Register Now!</Link>
+                            </p>
                         </form>
                     </div>
                 </div>
