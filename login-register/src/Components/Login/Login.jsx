@@ -43,7 +43,12 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 console.log(result);
-                setSuccess("Your Have Successfully logged in.");
+                if(result.user.emailVerified){
+                    setSuccess("Your Have Successfully logged in.");
+                }
+                else{
+                    alert("Please verify your registered account.");
+                }
             }).catch(error => {
                 setErrorMessage("The Email or Password you have given is Incorrect..!");
                 console.error(error);
