@@ -1,6 +1,6 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -8,9 +8,27 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const emailRef = useRef(null);
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
+    }
+
+    const handleResetPassword = () => {
+        const email = emailRef.current.value;
+        if(!email){
+            setErrorMessage("Please write your email address.");
+            return;
+        }
+        else if(!/^\w+@\w+\.\w+$/.test(email)){
+            setErrorMessage("Please provide a valid email address.");
+            return;
+        }
+        // console.log(emailRef.current.value);
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert("Please check you email...");
+        }).catch(error => console.log(error))
     }
 
     const handleLogin = (e) => {
@@ -27,7 +45,7 @@ const Login = () => {
                 console.log(result);
                 setSuccess("Your Have Successfully logged in.");
             }).catch(error => {
-                setErrorMessage("Your Email or Password is Incorrect..!");
+                setErrorMessage("The Email or Password you have given is Incorrect..!");
                 console.error(error);
             })
     }
@@ -45,7 +63,9 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name="email" type="email" placeholder="email" className="input input-bordered" required />
+                                <input name="email" ref={emailRef}
+                                type="email" placeholder="email" 
+                                className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -61,7 +81,8 @@ const Login = () => {
                                     </span>
                                 </div>
                                 <label className="label my-2">
-                                    <a href="#" className="label-text-alt text-primary hover:underline">Forgot password?</a>
+                                    <a href="#" onClick={handleResetPassword}
+                                    className="label-text-alt text-primary hover:underline">Forgot password?</a>
                                 </label>
 
                                 <label className="label text-xs">
