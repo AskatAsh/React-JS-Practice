@@ -1,11 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Header from './Components/Header/Header'
 
 function App() {
 
   return (
     <>
-      
-      <h1 className='text-5xl font-bold'>Login and Register Authentication using Firebase and React</h1>
+    
+      <Header></Header>
+      <Outlet></Outlet>
       
     </>
   )
