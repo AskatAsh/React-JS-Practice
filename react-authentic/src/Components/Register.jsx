@@ -12,17 +12,26 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
+        setErrorMessage('');
+        setSuccess('');
+
+        if(!/(?=.*[A-Z])(?=.*[0-9]).*/.test(password)){
+            setErrorMessage("Password must contain at least one digit and uppercase letter");
+            return;
+        }
+
         // send register info to firebase
         createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
+        .then(result => {
             setSuccess("Registered Successfully");
-            console.log("registered successfully!");
+            console.log(result);
         })
         .catch(error => {
             console.error(error);
             setErrorMessage(error.message);
         })
     }
+
     return (
         <div>
             <div className="hero py-14 bg-base-200">
