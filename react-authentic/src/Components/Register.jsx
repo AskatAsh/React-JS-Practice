@@ -1,7 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { useState } from "react";
 
 const Register = () => {
+    const [errorMessage, setErrorMessage] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = e => {
         e.preventDefault();
@@ -12,10 +15,12 @@ const Register = () => {
         // send register info to firebase
         createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
+            setSuccess("Registered Successfully");
             console.log("registered successfully!");
         })
         .catch(error => {
             console.error(error);
+            setErrorMessage(error.message);
         })
     }
     return (
@@ -42,6 +47,12 @@ const Register = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
+                            </div>
+                            <div>
+                                {
+                                    errorMessage ? <span className="text-xs text-red-400">{errorMessage}</span> 
+                                    : <span className="text-xs text-green-400">{success}</span>
+                                }
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
