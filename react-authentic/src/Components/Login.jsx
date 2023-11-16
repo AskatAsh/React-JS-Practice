@@ -17,21 +17,21 @@ const Login = () => {
 
     const handleResetPassword = () => {
         const email = emailRef.current.value;
-        if(!email){
+        if (!email) {
             setErrorMessage("Please enter your email");
             return;
         }
-        else if(!/^\w+@\w+\.\w+$/.test(email)){
+        else if (!/^\w+@\w+\.\w+$/.test(email)) {
             setErrorMessage("Please enter a valid email");
             return;
         }
         sendPasswordResetEmail(auth, email)
-        .then(() => {
-            alert("Please check your email");
-        })
-        .catch(error => {
-            console.error(error);
-        })
+            .then(() => {
+                alert("Please check your email");
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     const handleLogin = e => {
@@ -43,20 +43,26 @@ const Login = () => {
         setErrorMessage('');
         setSuccess('');
 
-        if(!/^\w+@\w+\.\w+$/.test(email)){
+        if (!/^\w+@\w+\.\w+$/.test(email)) {
             setErrorMessage("Please enter a valid email");
             return;
         }
         // send login info to firebase
         signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-            setSuccess('Login Successful')
-            console.log("login successful!");
-        })
-        .catch(error => {
-            setErrorMessage(error.message);
-            console.error(error);
-        })
+            .then(result => {
+                if (result.user.emailVerified) {
+                    console.log(result);
+                    setSuccess('Login Successful');
+                }
+                else{
+                    setErrorMessage('Please verify your email address')
+                }
+                
+            })
+            .catch(error => {
+                setErrorMessage(error.message);
+                console.error(error);
+            })
     }
     return (
         <div>
@@ -73,7 +79,7 @@ const Login = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name="email" ref={emailRef}
-                                placeholder="email" className="input input-bordered" required />
+                                    placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -81,24 +87,24 @@ const Login = () => {
                                 </label>
                                 <div className="relative flex items-center">
                                     <input type={showPassword ? "text" : "password"}
-                                        name="password" placeholder="password" 
+                                        name="password" placeholder="password"
                                         className="input input-bordered w-full" required />
                                     <span className="absolute right-2" onClick={handleShowPassword}>
                                         {
-                                            showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
+                                            showPassword ? <FaRegEye></FaRegEye> : <FaRegEyeSlash></FaRegEyeSlash>
                                         }
                                     </span>
                                 </div>
 
                                 <label className="label">
                                     <a href="#" onClick={handleResetPassword}
-                                    className="label-text-alt link link-hover hover:text-primary">Forgot password?</a>
+                                        className="label-text-alt link link-hover hover:text-primary">Forgot password?</a>
                                 </label>
                             </div>
                             <div>
                                 {
-                                    errorMessage ? <span className="text-xs text-red-400">{errorMessage}</span> 
-                                    : <span className="text-xs text-green-400">{success}</span>
+                                    errorMessage ? <span className="text-xs text-red-400">{errorMessage}</span>
+                                        : <span className="text-xs text-green-400">{success}</span>
                                 }
                             </div>
                             <div className="form-control mt-6">

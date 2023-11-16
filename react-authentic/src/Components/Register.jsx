@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
@@ -32,6 +32,13 @@ const Register = () => {
             .then(result => {
                 setSuccess("Registered Successfully");
                 console.log(result);
+                sendEmailVerification(auth.currentUser)
+                .then(() => {
+                    alert("Check your email for verification");
+                })
+                .catch(error => {
+                    console.log(error);
+                })
             })
             .catch(error => {
                 console.error(error);
@@ -66,7 +73,7 @@ const Register = () => {
                                         className="input input-bordered w-full" required />
                                     <span className="absolute right-2" onClick={handleShowPassword}>
                                         {
-                                            showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
+                                            showPassword ? <FaRegEye></FaRegEye> : <FaRegEyeSlash></FaRegEyeSlash>
                                         }
                                     </span>
                                 </div>
@@ -84,7 +91,7 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
-                            <p className="text-xs py-2">Already have an account? <Link href="/register" className="text-primary underline">Login Here</Link></p>
+                            <p className="text-xs py-2">Already have an account? <Link href="/login" className="text-primary underline">Login Here</Link></p>
                         </form>
                     </div>
                 </div>
