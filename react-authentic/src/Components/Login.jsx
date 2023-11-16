@@ -1,11 +1,19 @@
 import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useRef, useState } from "react";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState('');
     const emailRef = useRef(null);
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleResetPassword = () => {
         const email = emailRef.current.value;
@@ -71,7 +79,17 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <div className="relative flex items-center">
+                                    <input type={showPassword ? "text" : "password"}
+                                        name="password" placeholder="password" 
+                                        className="input input-bordered w-full" required />
+                                    <span className="absolute right-2" onClick={handleShowPassword}>
+                                        {
+                                            showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
+                                        }
+                                    </span>
+                                </div>
+
                                 <label className="label">
                                     <a href="#" onClick={handleResetPassword}
                                     className="label-text-alt link link-hover hover:text-primary">Forgot password?</a>
@@ -86,6 +104,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+                            <p className="text-xs py-2">Don&apos;t have an account? <Link href="/register" className="text-primary underline">Register Here</Link></p>
                         </form>
                     </div>
                 </div>

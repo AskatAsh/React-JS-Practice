@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -60,12 +61,12 @@ const Register = () => {
                                 </label>
 
                                 <div className="relative flex items-center">
-                                    <input type={showPassword ? "password" : "text"}
+                                    <input type={showPassword ? "text" : "password"}
                                         name="password" placeholder="password" 
                                         className="input input-bordered w-full" required />
                                     <span className="absolute right-2" onClick={handleShowPassword}>
                                         {
-                                            showPassword ? <FaRegEye></FaRegEye> : <FaRegEyeSlash></FaRegEyeSlash>
+                                            showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
                                         }
                                     </span>
                                 </div>
@@ -83,6 +84,7 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
+                            <p className="text-xs py-2">Already have an account? <Link href="/register" className="text-primary underline">Login Here</Link></p>
                         </form>
                     </div>
                 </div>
