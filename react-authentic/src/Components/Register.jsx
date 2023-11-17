@@ -1,10 +1,14 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    // console.log(createUser);
+
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -27,23 +31,45 @@ const Register = () => {
             return;
         }
 
-        // send register info to firebase
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
+        // using function passed from context which returns firebase create new user
+        createUser(email, password)
+        .then(result => {
                 setSuccess("Registered Successfully");
                 console.log(result);
                 sendEmailVerification(auth.currentUser)
-                .then(() => {
-                    alert("Check your email for verification");
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-            })
-            .catch(error => {
+                    .then(() => {
+                        alert("Check your email for verification");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }).catch(error => {
                 console.error(error);
                 setErrorMessage(error.message);
             })
+
+        // if (!/(?=.*[A-Z])(?=.*[0-9]).*/.test(password)) {
+        //     setErrorMessage("Password must contain at least one digit and uppercase letter");
+        //     return;
+        // }
+
+        // send register info to firebase
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then(result => {
+        //         setSuccess("Registered Successfully");
+        //         console.log(result);
+        //         sendEmailVerification(auth.currentUser)
+        //         .then(() => {
+        //             alert("Check your email for verification");
+        //         })
+        //         .catch(error => {
+        //             console.log(error);
+        //         })
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //         setErrorMessage(error.message);
+        //     })
     }
 
     return (
@@ -69,7 +95,7 @@ const Register = () => {
 
                                 <div className="relative flex items-center">
                                     <input type={showPassword ? "text" : "password"}
-                                        name="password" placeholder="password" 
+                                        name="password" placeholder="password"
                                         className="input input-bordered w-full" required />
                                     <span className="absolute right-2" onClick={handleShowPassword}>
                                         {
