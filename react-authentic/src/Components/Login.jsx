@@ -1,11 +1,14 @@
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 
 const Login = () => {
+    const {loginUser} = useContext(AuthContext);
+    
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState('');
     const emailRef = useRef(null);
@@ -47,22 +50,39 @@ const Login = () => {
             setErrorMessage("Please enter a valid email");
             return;
         }
+        // use function from context to send login
+        loginUser(email, password)
+        .then(result => {
+                    if (result.user.emailVerified) {
+                        console.log(result);
+                        setSuccess('Login Successful');
+                    }
+                    else{
+                        setErrorMessage('Please verify your email address')
+                    }
+                    
+                })
+                .catch(error => {
+                    setErrorMessage(error.message);
+                    console.error(error);
+                })
+
         // send login info to firebase
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                if (result.user.emailVerified) {
-                    console.log(result);
-                    setSuccess('Login Successful');
-                }
-                else{
-                    setErrorMessage('Please verify your email address')
-                }
+        // signInWithEmailAndPassword(auth, email, password)
+        //     .then(result => {
+        //         if (result.user.emailVerified) {
+        //             console.log(result);
+        //             setSuccess('Login Successful');
+        //         }
+        //         else{
+        //             setErrorMessage('Please verify your email address')
+        //         }
                 
-            })
-            .catch(error => {
-                setErrorMessage(error.message);
-                console.error(error);
-            })
+        //     })
+        //     .catch(error => {
+        //         setErrorMessage(error.message);
+        //         console.error(error);
+        //     })
     }
     return (
         <div>
