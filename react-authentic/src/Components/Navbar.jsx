@@ -18,6 +18,7 @@ const Navbar = () => {
 
             <ul className='flex gap-5 justify-center items-center'>
                 <li className='font-semibold text-primary'><Link to='/'>Home</Link></li>
+                <li className='font-semibold text-primary'><Link to='/orders'>Orders</Link></li>
             </ul>
 
             <ul className='flex gap-5 justify-center items-center'>
