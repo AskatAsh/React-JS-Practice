@@ -8,7 +8,7 @@ import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
     const navigate = useNavigate();
-    const {loginUser} = useContext(AuthContext);
+    const {loginUser, googleSignIn} = useContext(AuthContext);
     
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState('');
@@ -68,23 +68,15 @@ const Login = () => {
                     setErrorMessage(error.message);
                     console.error(error);
                 })
+    }
 
-        // send login info to firebase
-        // signInWithEmailAndPassword(auth, email, password)
-        //     .then(result => {
-        //         if (result.user.emailVerified) {
-        //             console.log(result);
-        //             setSuccess('Login Successful');
-        //         }
-        //         else{
-        //             setErrorMessage('Please verify your email address')
-        //         }
-                
-        //     })
-        //     .catch(error => {
-        //         setErrorMessage(error.message);
-        //         console.error(error);
-        //     })
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            console.log(result);
+        }).catch(error => {
+            console.error(error);
+        })
     }
     return (
         <div>
@@ -132,8 +124,11 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p className="text-xs py-2">Don&apos;t have an account? <Link to="/register" className="text-primary underline">Register Here</Link></p>
+                            <p className="text-xs pt-2">Don&apos;t have an account? <Link to="/register" className="text-primary underline">Register Here</Link></p>
+                            <div className="divider">OR</div>
+                            <p className="btn border border-primary" onClick={handleGoogleSignIn}>Sign in with Google</p>
                         </form>
+                        
                     </div>
                 </div>
             </div>
