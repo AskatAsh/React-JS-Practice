@@ -2,10 +2,11 @@ import { sendEmailVerification, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
+    const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     // console.log(createUser);
 
@@ -37,6 +38,7 @@ const Register = () => {
             .then(result => {
                 setSuccess("Registered Successfully");
                 console.log(result);
+                e.target.reset(); // resets the input fields
                 updateProfile(result.user, {
                     displayName: name
                 }).then(() => {
@@ -52,7 +54,7 @@ const Register = () => {
                     .catch(error => {
                         console.log(error);
                     })
-                e.target.reset(); // resets the input fields
+                navigate("/");
             }).catch(error => {
                 console.error(error);
                 setErrorMessage(error.message);
