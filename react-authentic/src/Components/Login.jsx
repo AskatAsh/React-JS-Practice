@@ -2,11 +2,12 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useContext, useRef, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 
 const Login = () => {
+    const navigate = useNavigate();
     const {loginUser} = useContext(AuthContext);
     
     const [errorMessage, setErrorMessage] = useState('');
@@ -56,6 +57,7 @@ const Login = () => {
                     if (result.user.emailVerified) {
                         console.log(result);
                         setSuccess('Login Successful');
+                        navigate("/");
                     }
                     else{
                         setErrorMessage('Please verify your email address')
