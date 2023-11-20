@@ -52,6 +52,7 @@ const Register = () => {
                     .catch(error => {
                         console.log(error);
                     })
+                e.target.reset(); // resets the input fields
             }).catch(error => {
                 console.error(error);
                 setErrorMessage(error.message);
