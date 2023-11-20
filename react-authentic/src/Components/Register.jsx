@@ -132,7 +132,7 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
-                            <p className="text-xs py-2">Already have an account? <Link href="/login" className="text-primary underline">Login Here</Link></p>
+                            <p className="text-xs py-2">Already have an account? <Link to="/login" className="text-primary underline">Login Here</Link></p>
                         </form>
                     </div>
                 </div>

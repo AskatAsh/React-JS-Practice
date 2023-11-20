@@ -130,7 +130,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p className="text-xs py-2">Don&apos;t have an account? <Link href="/register" className="text-primary underline">Register Here</Link></p>
+                            <p className="text-xs py-2">Don&apos;t have an account? <Link to="/register" className="text-primary underline">Register Here</Link></p>
                         </form>
                     </div>
                 </div>
