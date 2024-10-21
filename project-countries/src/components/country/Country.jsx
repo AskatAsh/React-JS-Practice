@@ -25,7 +25,7 @@ const Country = ({ country, handleVisitedCountry }) => {
             <p><b>Language: </b>{language[0]}</p>
 
             <div className='flex-button'>
-                <button onClick={handleVisited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Travel"}</button>
+                <button onClick={handleVisited} disabled={visited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Travel"}</button>
                 {/* <button onClick={() => handleVisitedCountry(country)}>Add to List</button> */}
             </div>
 

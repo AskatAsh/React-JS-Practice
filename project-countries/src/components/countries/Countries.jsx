@@ -27,15 +27,14 @@ const Countries = () => {
                 <h4>Visited Countries: {visitedCountries.length}</h4>
                 <ul className="list-visited">
                     {
-                        visitedCountries.map(country => <li key={country.cca3}>{country.name.common}</li>)
+                        visitedCountries.map(country => <li key={country.ccn3}>{country.name.common}</li>)
                     }
                 </ul>
             </div>
-
             <div className="country-container">
             {
-                countries.map(country => <Country 
-                    key={country.ccn3}
+                countries.map((country, idx) => <Country 
+                    key={idx}
                     handleVisitedCountry={handleVisitedCountry} 
                     country={country}></Country>)
             }
