@@ -10,15 +10,13 @@ const Countries = () => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => {
-        setCountries(data);
+        const sortedData = data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        setCountries(sortedData);
       });
   }, []);
   const handleVisitedCountry = (country) => {
-    // console.log("Add to visited coutries list");
-
     const newVisited = [...visitedCountries, country];
     setVisitedCountries(newVisited);
-    // console.log(country);
   };
 
   return (
