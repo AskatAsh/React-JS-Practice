@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './Country.css';
 
 const Country = ({ country, handleVisitedCountry }) => {
-    // console.log(country);
-    // const {name: {common}, flags} = country;
+
     const { name, flags, capital, population, languages } = country;
     const [visited, setVisited] = useState(false);
     const handleVisited = () => {
@@ -11,25 +10,22 @@ const Country = ({ country, handleVisitedCountry }) => {
         handleVisitedCountry(country);
     }
     if (!languages) {
-        return null;
+        return "";
     }
     const language = Object.values(languages);
-    // console.log(language);
-    // console.log(handleVisitedCountry);
 
     return (
         <div className={`country ${visited && 'visited'}`}>
             <h3>Name: {name?.common}</h3>
             <img src={flags.png} alt={flags.alt} className='flag' />
             <p><b>Capital:</b> {capital}, <b>Population:</b> {population}</p>
-            <p><b>Language: </b>{language[0]}</p>
+            <p><b>Language: </b>{
+                language.map((lang, id) => <span key={id}>{lang}{(id == language.length-1) ? "": ", "}</span>)
+            }</p>
 
             <div className='flex-button'>
                 <button onClick={handleVisited} disabled={visited}>{visited ? <span>Visited <i className="fa-solid fa-circle-check"></i></span> : "Travel"}</button>
-                {/* <button onClick={() => handleVisitedCountry(country)}>Add to List</button> */}
             </div>
-
-
         </div>
     );
 };
