@@ -9,6 +9,24 @@ const Country = ({ country, handleVisitedCountry }) => {
     handleVisitedCountry(country);
   };
 
+  // calculating population in thousands, lakhs and millions
+  const calculatePopulation = (population) => {
+    let calculatedPopulation = population;
+    if(population > 1000000){
+      calculatedPopulation = parseInt(population / 1000000);
+      return `${calculatedPopulation} Million`;
+    }
+    else if(population > 100000){
+      calculatedPopulation = parseInt(population / 100000);
+      return `${calculatedPopulation} Lakh`;
+    }
+    else if (population > 1000) {
+      calculatedPopulation = parseInt(population / 1000);
+      return `${calculatedPopulation} Thousand`;
+    }
+    return calculatedPopulation;
+  };
+
   const language = !languages ? ["Not Available"] : Object.values(languages);
 
   return (
@@ -18,7 +36,10 @@ const Country = ({ country, handleVisitedCountry }) => {
         <img src={flags.png} alt={flags.alt} className="flag" />
       </div>
       <p>
-        <b>Capital:</b> {capital}, <b>Population:</b> {population}
+        <b>Capital:</b> {capital}
+      </p>
+      <p>
+        <b>Population:</b> {calculatePopulation(population)}
       </p>
       <p>
         <b>Language: </b>
