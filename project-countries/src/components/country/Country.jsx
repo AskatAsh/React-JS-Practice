@@ -9,10 +9,8 @@ const Country = ({ country, handleVisitedCountry }) => {
         setVisited(!visited);
         handleVisitedCountry(country);
     }
-    if (!languages) {
-        return "";
-    }
-    const language = Object.values(languages);
+
+    const language = !languages ? ["Not Available"] : Object.values(languages);
 
     return (
         <div className={`country ${visited && 'visited'}`}>

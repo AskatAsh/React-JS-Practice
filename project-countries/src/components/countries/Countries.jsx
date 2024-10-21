@@ -9,9 +9,10 @@ const Countries = () => {
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
-      .then((data) => setCountries(data));
+      .then((data) => {
+        setCountries(data);
+      });
   }, []);
-  console.log(countries);
   const handleVisitedCountry = (country) => {
     // console.log("Add to visited coutries list");
 
@@ -22,9 +23,9 @@ const Countries = () => {
 
   return (
     <div>
-      <h3 style={{ textAlign: "center" }}>Countries: {countries.length}</h3>
+      <h2 style={{ textAlign: "center" }}>Total Countries: {countries.length}</h2>
       <div>
-        <h4>Visited Countries: {visitedCountries.length}</h4>
+        <h3>Visited Countries: {visitedCountries.length}</h3>
         <ul className="list-visited">
           {visitedCountries.map((country) => (
             <li key={country.ccn3}>{country.name.common}</li>
